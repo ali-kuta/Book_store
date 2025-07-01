@@ -1,0 +1,25 @@
+﻿@model Category
+<partial name="_Notification" />
+<form method="post">
+	<div class="border p-3 mt-4">
+		<div class="row pb-2">
+			<h2 clss="text-primary">Delete Cateogry</h2>
+			<hr />
+		</div>
+		<div clss="mb-3">
+			<label asp-for="Name">Ctegory Name</label>
+			<input asp-for="Name" disabled class="form-control" />
+
+		</div>
+
+		<div clss="mb-3">
+			<label asp-for="DisplayOrder">Display Order</label>
+			<input asp-for="DisplayOrder" disabled class="form-control" />
+
+		</div>
+		<button type="submit" class="btn btn-primary" style="width:150px">Delete</button>
+		<a asp-controller="Category" asp-action="Index" class="btn btn-denger" style="width:150px">Back to List</a>
+
+	</div>
+</form>
+

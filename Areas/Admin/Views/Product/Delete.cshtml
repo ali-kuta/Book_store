@@ -1,0 +1,54 @@
+﻿@model Product
+<partial name="_Notification" />
+<form method="post">
+	<div class="border p-3 mt-4">
+		<div class="row pb-2">
+			<h2 clss="text-primary">Delete Cateogry</h2>
+			<hr />
+		</div>
+		<div clss="mb-3">
+			<label asp-for="Title">Title</label>
+			<input asp-for="Title" disabled class="form-control" />
+n>
+		</div>
+
+		<div clss="mb-3">
+			<label asp-for="Description">Description</label>
+			<input asp-for="Description" disabled class="form-control" />
+		</div>
+
+		<div clss="mb-3">
+			<label asp-for="ISBN">ISBN</label>
+			<input asp-for="ISBN" disabled class="form-control" />
+		</div>
+
+		<div clss="mb-3">
+			<label asp-for="Author">Author</label>
+			<input asp-for="Author" disabled class="form-control" />
+		</div>
+
+		<div clss="mb-3">
+			<label asp-for="ListPrice">ListPrice</label>
+			<input asp-for="ListPrice" disabled class="form-control" />
+		</div>
+
+		<div clss="mb-3">
+			<label asp-for="Price">Price</label>
+			<input asp-for="Price" disabled class="form-control" />
+		</div>
+
+		<div clss="mb-3">
+			<label asp-for="Price50">Price50</label>
+			<input asp-for="Price50" disabled class="form-control" />
+		</div>
+
+		<div clss="mb-3">
+			<label asp-for="Price100">Price100</label>
+			<input asp-for="Price100" disabled class="form-control" />
+		</div>
+		<button type="submit" class="btn btn-primary" style="width:150px">Delete</button>
+		<a asp-controller="Category" asp-action="Index" class="btn btn-denger" style="width:150px">Back to List</a>
+
+	</div>
+</form>
+

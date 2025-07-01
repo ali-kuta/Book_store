@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35919.96
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "firs_dot_net_project", "firs_dot_net_project.csproj", "{E7A3C0C3-B361-4092-95E7-74511B7B3E4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "razpr_first_app", "..\razpr_first_app\razpr_first_app.csproj", "{347AE18D-3432-47A6-B88D-274EDE6DD7F4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E7A3C0C3-B361-4092-95E7-74511B7B3E4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7A3C0C3-B361-4092-95E7-74511B7B3E4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7A3C0C3-B361-4092-95E7-74511B7B3E4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7A3C0C3-B361-4092-95E7-74511B7B3E4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{347AE18D-3432-47A6-B88D-274EDE6DD7F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{347AE18D-3432-47A6-B88D-274EDE6DD7F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{347AE18D-3432-47A6-B88D-274EDE6DD7F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{347AE18D-3432-47A6-B88D-274EDE6DD7F4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {48B68772-1F38-45C5-81E1-EC8ADB642908}
+	EndGlobalSection
+EndGlobal

@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using firs_dot_net_project.Models;
+using firs_dot_net_project.Repository.IRepository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace firs_dot_net_project.Areas.Customer.Controllers
@@ -8,17 +9,24 @@ namespace firs_dot_net_project.Areas.Customer.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IUnitOfWork _IUnitOfWork;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger , IUnitOfWork IUnitOfWork)
         {
             _logger = logger;
+            _IUnitOfWork = IUnitOfWork;
         }
 
         public IActionResult Index()
         {
-            return View();
+            IEnumerable<Product> productList = _IUnitOfWork.Product.GetAll(Categoryproparty: "categories");
+            return View(productList);
         }
-
+        public IActionResult Details(int id)
+        {
+            Product Product = _IUnitOfWork.Product.Get(u=>u.Id==id,Categoryproparty: "categories");
+            return View(Product);
+        }
         public IActionResult Privacy()
         {
             return View();

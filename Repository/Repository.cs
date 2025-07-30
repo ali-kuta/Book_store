@@ -24,16 +24,33 @@ namespace firs_dot_net_project.Repository
             
         }
 
-        public T Get(Expression<Func<T, bool>> filter)
+        public T Get(Expression<Func<T, bool>> filter , string? Categoryproparty = null)
         {
             IQueryable<T> query = dbSet;
+            if (!string.IsNullOrEmpty(Categoryproparty))
+            {
+
+                foreach (var property in Categoryproparty.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(property);
+                }
+
+            }
             query = query.Where(filter);
             return query.FirstOrDefault();
         }
 
-        public IEnumerable<T> GetAll()
+        public IEnumerable<T> GetAll(string? Categoryproparty=null)
         {
             IQueryable<T> query = dbSet;
+            if (!string.IsNullOrEmpty(Categoryproparty)) { 
+
+                foreach (var property in Categoryproparty.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(property);
+                }
+            
+            }
             return query.ToList();
         }
         

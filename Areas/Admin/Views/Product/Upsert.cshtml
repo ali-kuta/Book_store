@@ -1,0 +1,91 @@
+﻿@model ProductVM
+<partial name="_Notification" />
+<form method="post" enctype="multipart/form-data">
+	<div class="row">
+		<div class="col-10">
+			<div class="border p-3 mt-4">
+				<div class="row pb-2">
+					<h2 clss="text-primary">@(Model.Product.Id != 0 ? "Update" : "Create") Product</h2>
+					<hr />
+				</div>
+				<input asp-for="Product.Id" hidden />
+				<input asp-for="Product.ImageUrl" hidden />
+				<div clss="mb-3">
+					<label asp-for="Product.Title">Title</label>
+					<input asp-for="Product.Title" class="form-control" />
+					<span asp-validation-for="Product.Title" class=" text-bg-danger"></span>
+				</div>
+
+				<div clss="mb-3">
+					<label asp-for="Product.Description">Description</label>
+					<input asp-for="Product.Description" class="form-control" />
+					<span asp-validation-for="Product.Description" class=" text-danger"></span>
+				</div>
+
+				<div clss="mb-3">
+					<label asp-for="Product.ISBN">ISBN</label>
+					<input asp-for="Product.ISBN" class="form-control" />
+					<span asp-validation-for="Product.ISBN" class=" text-danger"></span>
+				</div>
+
+				<div clss="mb-3">
+					<label asp-for="Product.Author">Author</label>
+					<input asp-for="Product.Author" class="form-control" />
+					<span asp-validation-for="Product.Author" class=" text-danger"></span>
+				</div>
+
+				<div clss="mb-3">
+					<label asp-for="Product.ListPrice">ListPrice</label>
+					<input asp-for="Product.ListPrice" class="form-control" />
+					<span asp-validation-for="Product.ListPrice" class=" text-danger"></span>
+				</div>
+
+				<div clss="mb-3">
+					<label asp-for="Product.Price">Price</label>
+					<input asp-for="Product.Price" class="form-control" />
+					<span asp-validation-for="Product.Price" class=" text-danger"></span>
+				</div>
+
+				<div clss="mb-3">
+					<label asp-for="Product.Price50">Price50</label>
+					<input asp-for="Product.Price50" class="form-control" />
+					<span asp-validation-for="Product.Price50" class=" text-danger"></span>
+				</div>
+
+				<div clss="mb-3">
+					<label asp-for="Product.Price100">Price100</label>
+					<input asp-for="Product.Price100" class="form-control" />
+					<span asp-validation-for="Product.Price100" class=" text-danger"></span>
+				</div>
+
+
+				<div clss="mb-3">
+					<label asp-for="Product.ImageUrl">ImageUrl</label>
+					<input type="file" name="file" class="form-control"  />
+					<span asp-validation-for="Product.ImageUrl" class=" text-danger"></span>
+				</div>
+
+				<div class="mb-3">
+					<label asp-for="Product.CategoryId">Category</label>
+					<select asp-for="Product.CategoryId" asp-items="@Model.CategoryList" class="form-control">
+						<option disabled selected>--Select Category--</option>
+					</select>
+					<span asp-validation-for="Product.CategoryId" class="text-danger"></span>
+				</div>
+				<span asp-validation-for="Product.Price100" class=" text-danger"></span>
+			</div>
+			
+		</div>
+		<div class="col-2"><img src="@Model.Product.ImageUrl" width="100%" /></div>
+	</div>
+	
+		<button type="submit" class="btn btn-primary" style="width:150px">Upsert</button>
+		<a  asp-action="Index" class="btn btn-secondary" style="width:150px">Back to List</a>
+
+	</div>
+</form>
+@{
+	
+< partial name = "_ValidationScriptsPartial" />
+
+}

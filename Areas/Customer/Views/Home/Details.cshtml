@@ -1,0 +1,85 @@
+﻿@model Product
+
+<div class="container py-5">
+    <div class="row g-5">
+        <!-- Book Image -->
+        <div class="col-md-6">
+            <div class="border p-3 rounded-3 shadow-sm bg-white">
+                <img src="@Model.ImageUrl" class="img-fluid w-100 rounded-2" alt="@Model.Title" style="max-height: 600px; object-fit: contain;">
+            </div>
+            <div class="d-flex justify-content-center gap-2 mt-3">
+                <button class="btn btn-outline-primary px-4 rounded-pill">
+                    <i class="fas fa-heart me-2"></i>Wishlist
+                </button>
+                <button class="btn btn-primary px-4 rounded-pill">
+                    <i class="fas fa-shopping-cart me-2"></i>Add to Cart
+                </button>
+            </div>
+        </div>
+
+        <!-- Book Details -->
+        <div class="col-md-6">
+            <div class="mb-4">
+                <h1 class="fw-light mb-2">@Model.Title</h1>
+                <p class="text-muted mb-3">by @Model.Author</p>
+                <div class="d-flex align-items-center mb-3">
+                    <div class="text-warning me-2">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <span class="text-muted small">(128 reviews)</span>
+                </div>
+            </div>
+
+            <div class="bg-light p-4 rounded-3 mb-4">
+                <div class="d-flex align-items-center mb-3">
+                    <span class="fs-3 fw-bold text-dark me-3">@Model.ListPrice.ToString("C")</span>
+                    <span class="text-decoration-line-through text-muted">@((Model.ListPrice).ToString("C"))</span>
+                    <span class="badge bg-danger ms-2">Save 20%</span>
+                </div>
+                <p class="text-success mb-0"><i class="fas fa-check-circle me-2"></i>In Stock (15 available)</p>
+            </div>
+
+            <div class="mb-4">
+                <h5 class="mb-3">Description</h5>
+                <p class="text-muted">@Model.Description</p>
+            </div>
+
+            <div class="mb-4">
+                <h5 class="mb-3">Details</h5>
+                <ul class="list-unstyled text-muted">
+                    <li class="mb-2"><strong>ISBN:</strong> @Model.ISBN</li>
+                    <li class="mb-2"><strong>Publisher:</strong> @Model.Author</li>
+                    <li class="mb-2"><strong>Category:</strong> @Model.categories.Name</li>
+                    <li class="mb-2"><strong>Language:</strong> English</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .border {
+        border: 1px solid #eaeaea !important;
+    }
+
+    .img-fluid {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .rounded-3 {
+        border-radius: 0.75rem !important;
+    }
+
+    .rounded-2 {
+        border-radius: 0.5rem !important;
+    }
+</style>

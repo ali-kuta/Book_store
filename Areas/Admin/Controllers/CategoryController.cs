@@ -3,10 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using firs_dot_net_project.Models;
 using firs_dot_net_project.Repository.IRepository;
 using firs_dot_net_project.Repository;
+using Microsoft.AspNetCore.Authorization;
 
 namespace firs_dot_net_project.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class CategoryController : Controller
     {
         private readonly IUnitOfWork IUnitOfWork;

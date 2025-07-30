@@ -1,8 +1,67 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IEnumerable<Product>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row g-4">
+    @foreach (var product in Model)
+    {
+        <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="card h-100 border-0 shadow-sm hover-shadow transition-all">
+                <div class="position-relative overflow-hidden" style="height: 280px;">
+                    <img src="@product.ImageUrl" class="card-img-top h-100 w-100 object-fit-cover" alt="@product.Title">
+                    <div class="card-img-overlay d-flex align-items-end justify-content-center opacity-0 hover-opacity-100 transition-all">
+                        <a asp-action="Details" asp-route-id="@product.Id" class="btn btn-dark rounded-pill px-4 stretched-link">Quick View</a>
+                    </div>
+                </div>
+                <div class="card-body pt-3 pb-4 px-4">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <h5 class="card-title mb-0 fw-semibold text-truncate">@product.Title</h5>
+                        <span class="badge bg-primary bg-opacity-10 text-primary">New</span>
+                    </div>
+                    <p class="card-text text-muted small mb-2">by @product.Author</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <span class="text-danger fw-bold fs-5">@product.ListPrice.ToString("C")</span>
+                            <span class="text-decoration-line-through text-muted small ms-2">@((product.ListPrice).ToString("C"))</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
 </div>
+
+<style>
+    .hover-shadow {
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+        .hover-shadow:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+    .transition-all {
+        transition: all 0.3s ease;
+    }
+
+    .hover-opacity-100:hover {
+        opacity: 1 !important;
+        background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+    }
+
+    .card-img-overlay {
+        pointer-events: none;
+    }
+
+        .card-img-overlay .btn {
+            pointer-events: auto;
+        }
+
+    .stretched-link::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        content: "";
+    }
+</style>
